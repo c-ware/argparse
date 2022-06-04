@@ -1,4 +1,4 @@
-.TH "argparse-internal" "cware" "May 30, 2022" "" "C-Ware Manuals"
+.TH "argparse-internal" "cware" "Jun 04, 2022" "" "C-Ware Manuals"
 .SH NAME
 argparse-internal - internal argparse behavior intended for programmers
 .SH SYNOPSIS

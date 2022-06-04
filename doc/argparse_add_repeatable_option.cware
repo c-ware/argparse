@@ -1,4 +1,4 @@
-.TH "argparse_add_repeatable_option" "cware" "May 30, 2022" "" "C-Ware Manuals"
+.TH "argparse_add_repeatable_option" "cware" "Jun 04, 2022" "" "C-Ware Manuals"
 .SH NAME
 argparse_add_repeatable_option - add a new repeatable option to the argument parser
 .SH SYNOPSIS

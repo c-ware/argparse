@@ -1,4 +1,4 @@
-.TH "argparse_count_argv_parameters" "cware" "May 30, 2022" "" "C-Ware Manuals"
+.TH "argparse_count_argv_parameters" "cware" "Jun 04, 2022" "" "C-Ware Manuals"
 .SH NAME
 argparse_count_argv_parameters - count the number of parameters passed to an option
 .SH SYNOPSIS

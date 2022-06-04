@@ -59,6 +59,7 @@
 #define CWARE_ARGPARSE_H
 
 /* Possibilities for variable option parameters */
+#define ARGPARSE_FLAG           0
 #define ARGPARSE_NOT_FOUND      -1
 #define ARGPARSE_VARIABLE       -2
 #define ARGPARSE_VARIABLE_ONE   -3
