@@ -1,4 +1,4 @@
-.TH "argparse_option_exists" "cware" "May 30, 2022" "" "C-Ware Manuals"
+.TH "argparse_option_exists" "cware" "Jun 04, 2022" "" "C-Ware Manuals"
 .SH NAME
 argparse_option_exists - determine if an option exists in the argv
 .SH SYNOPSIS

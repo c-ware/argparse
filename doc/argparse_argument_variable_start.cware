@@ -1,4 +1,4 @@
-.TH "argparse_argument_variable_start" "cware" "May 30, 2022" "" "C-Ware Manuals"
+.TH "argparse_argument_variable_start" "cware" "Jun 04, 2022" "" "C-Ware Manuals"
 .SH NAME
 argparse_argument_variable_start - begin iteration of variable arguments
 .SH SYNOPSIS

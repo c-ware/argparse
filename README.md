@@ -14,5 +14,5 @@ and ready to go. Comes with these features:
 
 It should be noted however, this library does not tackle the creation of help
 messages. This is mostly to simplify the desgin of the library. However, you can
-find examples on writing your own logic for displaying help messages in
-`examples/help.c`.
+find examples on writing your own logic for displaying help messages, as well as
+how to write a basic program with argparse, in `examples/isum.c`

@@ -1,4 +1,4 @@
-.TH "argparse" "cware" "May 30, 2022" "" "C-Ware Manuals"
+.TH "argparse" "cware" "Jun 04, 2022" "" "C-Ware Manuals"
 .SH NAME
 argparse - argument parsing library for c
 .SH SYNOPSIS

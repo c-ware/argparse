@@ -1,4 +1,4 @@
-.TH "argparse_option_argv_index" "cware" "May 30, 2022" "" "C-Ware Manuals"
+.TH "argparse_option_argv_index" "cware" "Jun 04, 2022" "" "C-Ware Manuals"
 .SH NAME
 argparse_option_argv_index - determine the index of an option in the argv of the parser
 .SH SYNOPSIS

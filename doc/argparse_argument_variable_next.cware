@@ -1,4 +1,4 @@
-.TH "argparse_argument_variable_next" "cware" "May 30, 2022" "" "C-Ware Manuals"
+.TH "argparse_argument_variable_next" "cware" "Jun 04, 2022" "" "C-Ware Manuals"
 .SH NAME
 argparse_argument_variable_next - find the next variable argument
 .SH SYNOPSIS
