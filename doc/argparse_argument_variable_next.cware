@@ -1,0 +1,41 @@
+.TH "argparse_argument_variable_next" "cware" "May 30, 2022" "" "C-Ware Manuals"
+.SH NAME
+argparse_argument_variable_next - find the next variable argument
+.SH SYNOPSIS
+.B "#include ""argparse.h"""
+.br
+
+\fBint argparse_argument_variable_next(struct ArgparseParser \fIparser\fB, int \fIindex\fB);
+.br
+
+\fR
+.SH DESCRIPTION
+This function will determine the location of the next variadic argument
+in the argv based off of the index of the previous one.
+
+This function will display an error to the stderr, and abort the program if any of following conditions are met.
+.RS
+o    index is outside the bounds of the argc
+.br
+.RE
+
+\fIparser\fR will be the parser the option is inside
+.br
+\fIindex\fR will be the index of the previous argument
+.br
+.SH RETURN VALUE
+This function will return the index of the first variable argument, or -1 if there is none
+.SH NOTES
+This function, along with all functions in extractors.c, will ASSUME that
+error checking has BEEN DONE. Make sure this is done before this function
+is invoked.
+
+It should also be noted that this function should NOT be called out of
+conjunction with argparse_argument_variable_start. This can lead to errors
+due to argparse_argument_variable_start performing error checks that this
+function does not.
+
+.SH EXAMPLES
+This function has no examples.
+.SH SEE ALSO
+This function has no references.

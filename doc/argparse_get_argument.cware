@@ -1,0 +1,82 @@
+.TH "argparse_get_argument" "cware" "May 30, 2022" "" "C-Ware Manuals"
+.SH NAME
+argparse_get_argument - extract an argument from the parser
+.SH SYNOPSIS
+.B "#include ""argparse.h"""
+.br
+
+\fBchar * argparse_get_argument(struct ArgparseParser \fIparser\fB, const char *\fIargument\fB);
+.br
+
+\fR
+.SH DESCRIPTION
+This function will extract the argument in the argv represented by the
+argument provided.
+
+This function will display an error to the stderr, and abort the program if any of following conditions are met.
+.RS
+o    argument is NULL
+.br
+o    parser.name is NULL
+.br
+o    parser.argv is NULL
+.br
+o    parser.arguments is NULL
+.br
+o    parser.arguments->contents is NULL
+.br
+o    parser.arguments->length is negative
+.br
+o    parser.argc is negative
+.br
+.RE
+
+\fIparser\fR will be the parser to get an argument from
+.br
+\fIargument\fR will be the name of the argument to retrieve
+.br
+.SH RETURN VALUE
+This function will return the argument assigned to the name
+.SH NOTES
+This function has no notes.
+.SH EXAMPLES
+#include "argparse.h"
+.br
+
+.br
+int main(int argc, char **argv) {
+.br
+    char *argument = NULL;
+.br
+    struct ArgparseParser parser = argparse_init("prog", argc, argv);
+.br
+    
+.br
+    // Program accepts three arguments
+.br
+    argparse_add_argument(&parser, "foo");
+.br
+    argparse_add_argument(&parser, "bar");
+.br
+    argparse_add_argument(&parser, "baz");
+.br
+
+.br
+    // Perform error checking
+.br
+    argparse_error(&parser);
+.br
+
+.br
+    // Get the 2nd positional argument (represented by 'bar')
+.br
+    argument = argparse_get_argument(parser, "bar");
+.br
+
+.br
+    return 0;
+.br
+}
+.br
+.SH SEE ALSO
+This function has no references.

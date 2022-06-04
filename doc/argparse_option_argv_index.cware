@@ -1,0 +1,39 @@
+.TH "argparse_option_argv_index" "cware" "May 30, 2022" "" "C-Ware Manuals"
+.SH NAME
+argparse_option_argv_index - determine the index of an option in the argv of the parser
+.SH SYNOPSIS
+
+\fBint argparse_option_argv_index(struct ArgparseParser \fIparser\fB, const char *\fIoption\fB);
+.br
+
+\fR
+.SH DESCRIPTION
+Determine the index of an option in the argv of the parser. This function
+does not determine the location of the alternate name of the option, but
+rather just finds the option name given to it.
+
+This function will display an error to the stderr, and abort the program if any of following conditions are met.
+.RS
+o    option is NULL
+.br
+o    parser.argv is NULL
+.br
+o    parser.argc is negative
+.br
+.RE
+
+\fIparser\fR will be the parser to search
+.br
+\fIoption\fR will be the option to search for
+.br
+.SH RETURN VALUE
+This function will return the index of the option in the argc, or ARGPARSE_NOT_FOUND
+.SH NOTES
+This function is meant for internal use only. Although it can only be
+accessed through including the argparse_internal.h header, it is very
+much advised that you do not use this directly.
+
+.SH EXAMPLES
+This function has no examples.
+.SH SEE ALSO
+This function has no references.

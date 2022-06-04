@@ -1,0 +1,46 @@
+.TH "argparse_option_parameter_stop" "cware" "May 30, 2022" "" "C-Ware Manuals"
+.SH NAME
+argparse_option_parameter_stop - determine if iteration of option parameters should be stopped
+.SH SYNOPSIS
+.B "#include ""argparse.h"""
+.br
+
+\fBint argparse_option_parameter_stop(struct ArgparseParser \fIparser\fB, const char *\fIoption\fB, const char *\fIindex\fB);
+.br
+
+\fR
+.SH DESCRIPTION
+Determine if the iteration over an option's parameters should be stopped.
+Simply checks if the current index is in the range of the number of
+parameters the option has in the argv.
+
+This function will display an error to the stderr, and abort the program if any of following conditions are met.
+.RS
+o    option is NULL
+.br
+o    index is negative
+.br
+.RE
+
+\fIparser\fR will be the parser the option is inside
+.br
+\fIoption\fR will be the option to iterate over
+.br
+\fIindex\fR will be the current index in the argv
+.br
+.SH RETURN VALUE
+This function will return 1 if iteration should stop, and 0 if it should continue
+.SH NOTES
+This function, along with all functions in extractors.c, will ASSUME that
+error checking has BEEN DONE. Make sure this is done before this function
+is invoked.
+
+It should also be noted that this function should NOT be called out of
+conjunction with argparse_option_parameter_start. This can lead to errors
+due to argparse_option_parameter_start performing error checks that this
+function does not.
+
+.SH EXAMPLES
+This function has no examples.
+.SH SEE ALSO
+This function has no references.

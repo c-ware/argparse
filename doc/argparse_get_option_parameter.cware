@@ -1,0 +1,37 @@
+.TH "argparse_get_option_parameter" "cware" "May 30, 2022" "" "C-Ware Manuals"
+.SH NAME
+argparse_get_option_parameter - get the Nth parameter of an option
+.SH SYNOPSIS
+.B "#include ""argparse.h"""
+.br
+
+\fBchar * argparse_get_option_parameter(struct ArgparseParser \fIparser\fB, const char *\fIoption\fB, int \fIindex\fB);
+.br
+
+\fR
+.SH DESCRIPTION
+Retrieve the Nth parameter of an option. Will work for variable, or fixed-
+length options. N is 0-indexed.
+
+This function will display an error to the stderr, and abort the program if any of following conditions are met.
+.RS
+o    option is NULL
+.br
+o    parser.argv is NULL
+.br
+.RE
+
+\fIparser\fR will be the parser to get the option from
+.br
+\fIoption\fR will be the option to get the parameter of
+.br
+\fIindex\fR will be the parameter to get
+.br
+.SH RETURN VALUE
+This function will return the parameter at that index
+.SH NOTES
+This function has no notes.
+.SH EXAMPLES
+This function has no examples.
+.SH SEE ALSO
+This function has no references.

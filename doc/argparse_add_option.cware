@@ -1,0 +1,73 @@
+.TH "argparse_add_option" "cware" "May 30, 2022" "" "C-Ware Manuals"
+.SH NAME
+argparse_add_option - add a new option to the argument parser
+.SH SYNOPSIS
+.B "#include ""argparse.h"""
+.br
+
+\fBvoid argparse_add_option(struct ArgparseParser *\fIparser\fB, const char *\fIname\fB, const char *\fIalt_name\fB, int \fIparameters\fB);
+.br
+
+\fR
+.SH DESCRIPTION
+Add a new option that the program can accept to the argument parser.
+The option can have both a name, and an alternative name (which emulates
+UNIX-like longform and shortform names) which can also be used as the option.
+
+The number of parameters must be a positive number, except for in the special
+cases that either ARGPARSE_VARIABLE, or ARGPARSE_VARIABLE_ONE, which should
+be negative integers. In cases like Windows, where switches / flags do not
+have alternative forms, the alt_name parameter can be NULL, but under no
+circumstances can the `name` parameter be NULL.
+
+This function will display an error to the stderr, and abort the program if any of following conditions are met.
+.RS
+o    name is NULL
+.br
+o    parser is NULL
+.br
+o    parser->options is NULL
+.br
+o    parser->options->length is negative
+.br
+o    parameters is a non-special negative integer
+.br
+o    either of the names collide with themselves, or with any existing options
+.br
+.RE
+
+\fIparser\fR will be the argument parser to add the option to
+.br
+\fIname\fR will be the name of the option
+.br
+\fIalt_name\fR will be the alternative name of the option
+.br
+\fIparameters\fR will be the number of parameters the option accepts
+.br
+.SH RETURN VALUE
+This function has no return value.
+.SH NOTES
+This function has no notes.
+.SH EXAMPLES
+#include "argparse.h"
+.br
+
+.br
+int main(int argc, char **argv) {
+.br
+    struct ArgparseParser parser = argparse_init(argc, argv);
+.br
+
+.br
+    argparse_add_option(&parser, "-f", "--foo", 2);
+.br
+    argparse_add_option(&parser, "-b", "--bar", 1);
+.br
+    
+.br
+    return 0;
+.br
+}
+.br
+.SH SEE ALSO
+This function has no references.

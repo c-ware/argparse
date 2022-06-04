@@ -1,0 +1,31 @@
+.TH "argparse_option_exists" "cware" "May 30, 2022" "" "C-Ware Manuals"
+.SH NAME
+argparse_option_exists - determine if an option exists in the argv
+.SH SYNOPSIS
+.B "#include ""argparse.h"""
+.br
+
+\fBvoid argparse_option_exists(struct ArgparseParser \fIparser\fB, const char *\fIoption\fB);
+.br
+
+\fR
+.SH DESCRIPTION
+This function will determine if an option exists in the argv. This function
+is simply a wrapper around argparse_option_argv_index(cware), with a more
+friendly interface.
+
+This function has no error conditions.
+.br
+
+\fIparser\fR will be the parser to check
+.br
+\fIoption\fR will be the option to find
+.br
+.SH RETURN VALUE
+This function has no return value.
+.SH NOTES
+This function has no notes.
+.SH EXAMPLES
+This function has no examples.
+.SH SEE ALSO
+This function has no references.

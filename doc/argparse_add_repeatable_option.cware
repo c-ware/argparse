@@ -1,0 +1,65 @@
+.TH "argparse_add_repeatable_option" "cware" "May 30, 2022" "" "C-Ware Manuals"
+.SH NAME
+argparse_add_repeatable_option - add a new repeatable option to the argument parser
+.SH SYNOPSIS
+.B "#include ""argparse.h"""
+.br
+
+\fBvoid argparse_add_repeatable_option(struct ArgparseParser *\fIparser\fB, const char *\fIname\fB, const char *\fIalt_name\fB);
+.br
+
+\fR
+.SH DESCRIPTION
+Add a new option that the program can accept to the argument parser.
+The option can have both a name, and an alternative name (which emulates
+UNIX-like longform and shortform names) which can also be used as the option.
+
+Unlike argparse_add_option, the option is repeatable. This allows you to
+pass the same option multiple times to the program. As an example, the options
+-L and -I in GCC. All repeatable options can only accept one parameter.
+
+This function will display an error to the stderr, and abort the program if any of following conditions are met.
+.RS
+o    name is NULL
+.br
+o    parser is NULL
+.br
+o    parser->options is NULL
+.br
+o    either of the names collide with themselves, or with any existing options
+.br
+.RE
+
+\fIparser\fR will be the argument parser to add the option to
+.br
+\fIname\fR will be the name of the option
+.br
+\fIalt_name\fR will be the alternative name of the option
+.br
+.SH RETURN VALUE
+This function has no return value.
+.SH NOTES
+This function has no notes.
+.SH EXAMPLES
+#include "argparse.h"
+.br
+
+.br
+int main(int argc, char **argv) {
+.br
+    struct ArgparseParser parser = argparse_init(argc, argv);
+.br
+
+.br
+    argparse_add_repeatable_option(&parser, "-f", "--foo");
+.br
+    argparse_add_repeatable_option(&parser, "-b", "--bar");
+.br
+    
+.br
+    return 0;
+.br
+}
+.br
+.SH SEE ALSO
+This function has no references.

@@ -1,0 +1,38 @@
+.TH "argparse_is_option" "cware" "May 30, 2022" "" "C-Ware Manuals"
+.SH NAME
+argparse_is_option - determine if an argument is an option
+.SH SYNOPSIS
+.B "#include ""argparse_internal.h"""
+.br
+
+\fBint argparse_is_option(struct ArgparseParser \fIparser\fB, const char *\fIargument\fB);
+.br
+
+\fR
+.SH DESCRIPTION
+Determine if an argument takes the form of an option. Currently, this
+function only does UNIX-style options, however in the future it will
+use the type of argument style requested by the user as the basis.
+
+This function will display an error to the stderr, and abort the program if any of following conditions are met.
+.RS
+o    argument is NULL
+.br
+.RE
+
+\fIparser\fR will be the parser to check-- currently unused
+.br
+\fIargument\fR will be the argument to check for option-ness
+.br
+.SH RETURN VALUE
+This function will return 1 if the argument is an option, and 0 if its not an option
+.SH NOTES
+This function is meant for internal use only. Although it can only be
+accessed through including the argparse_internal.h header, it is very
+much advised that you do not use this directly.
+
+.SH EXAMPLES
+This function has no examples.
+.SH SEE ALSO
+\fBcware\fR(cware), \fBargparse\fR(cware), \fBargparse_internal\fR(cware)
+.br

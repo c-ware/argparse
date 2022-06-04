@@ -1,0 +1,68 @@
+.TH "argparse_free" "cware" "May 30, 2022" "" "C-Ware Manuals"
+.SH NAME
+argparse_free - release an argument parser from memory
+.SH SYNOPSIS
+.B "#include ""argparse.h"""
+.br
+
+\fBvoid argparse_free(struct ArgparseParser \fIparser\fB);
+.br
+
+\fR
+.SH DESCRIPTION
+Release an argument parser from memory. Specifically, it releases the
+arguments and options array from the parser.
+
+This function will display an error to the stderr, and abort the program if any of following conditions are met.
+.RS
+o    parser.options is NULL
+.br
+o    parser.arguments is NULL
+.br
+.RE
+
+\fIparser\fR will be the argument parser to release from memory
+.br
+.SH RETURN VALUE
+This function has no return value.
+.SH NOTES
+This function has no notes.
+.SH EXAMPLES
+#include "argparse.h"
+.br
+
+.br
+int main(int argc, char **argv) {
+.br
+    struct ArgparseParser parser = argparse_init("prog", argc, argv);
+.br
+
+.br
+    // Add arguments to the argument array
+.br
+    argparse_add_argument(&parser, "foo");
+.br
+    argparse_add_argument(&parser, "bar");
+.br
+    argparse_add_argument(&parser, "baz");
+.br
+
+.br
+    // Add options to the option array
+.br
+    argparse_add_option(&parser, "--opt", "-o", 1);
+.br
+
+.br
+    // Release the argument parser from memory
+.br
+    argparse_free(parser);
+.br
+
+.br
+    return 0;
+.br
+}
+.br
+.SH SEE ALSO
+This function has no references.

@@ -1,0 +1,54 @@
+.TH "argparse_error" "cware" "May 30, 2022" "" "C-Ware Manuals"
+.SH NAME
+argparse_error - perform error checks on the argument parser
+.SH SYNOPSIS
+.B "#include ""argparse.h"""
+.br
+
+\fBvoid argparse_error(struct ArgparseParser \fIparser\fB);
+.br
+
+\fR
+.SH DESCRIPTION
+Perform error checks on the argv of a program, and raise an error to the
+stderr and exit the program if there is one. An error can be caused by:
+    - Too many, or too few positional arguments
+    - Too many, or too few parameters to an option
+    - An unknown option is found
+
+This function has no error conditions.
+.br
+
+\fIparser\fR will be the parser to perform error checking on
+.br
+.SH RETURN VALUE
+This function has no return value.
+.SH NOTES
+This function has no notes.
+.SH EXAMPLES
+#include "argparse.h"
+.br
+
+.br
+int main(int argc, char **argv) {
+.br
+    struct ArgparseParser parser = argparse_init(argc, argv);
+.br
+
+.br
+    argparse_add_option(&parser, "-f", "--foo", 2);
+.br
+    argparse_add_option(&parser, "-b", "--bar", 1);
+.br
+
+.br
+    argparse_error(parser);
+.br
+    
+.br
+    return 0;
+.br
+}
+.br
+.SH SEE ALSO
+This function has no references.

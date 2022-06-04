@@ -1,0 +1,59 @@
+.TH "argparse_add_argument" "cware" "May 30, 2022" "" "C-Ware Manuals"
+.SH NAME
+argparse_add_argument - add a new argument to the argument parser
+.SH SYNOPSIS
+.B "#include ""argparse.h"""
+.br
+
+\fBvoid argparse_add_argument(struct ArgparseParser *\fIparser\fB, const char *\fIname\fB);
+.br
+
+\fR
+.SH DESCRIPTION
+Add a new positional argument to the argument parser of a certain name.
+Adding a new argument will require the program to accept a new argument
+to run correctly.
+
+This function will display an error to the stderr, and abort the program if any of following conditions are met.
+.RS
+o    name is NULL
+.br
+o    parser is NULL
+.br
+o    parser->arguments is NULL
+.br
+o    name is already the name of an argument
+.br
+.RE
+
+\fIparser\fR will be the argument parser to add the argument to
+.br
+\fIname\fR will be the name of the argument
+.br
+.SH RETURN VALUE
+This function has no return value.
+.SH NOTES
+This function has no notes.
+.SH EXAMPLES
+#include "argparse.h"
+.br
+
+.br
+int main(int argc, char **argv) {
+.br
+    struct ArgparseParser parser = argparse_init(argc, argv);
+.br
+
+.br
+    argparse_add_argument(&parser, "argument_a");
+.br
+    argparse_add_argument(&parser, "argument_b");
+.br
+    
+.br
+    return 0;
+.br
+}
+.br
+.SH SEE ALSO
+This function has no references.

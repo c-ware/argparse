@@ -1,0 +1,106 @@
+.TH "argparse-internal" "cware" "May 30, 2022" "" "C-Ware Manuals"
+.SH NAME
+argparse-internal - internal argparse behavior intended for programmers
+.SH SYNOPSIS
+
+.B "#include ""argparse.h"""
+.br
+.br
+
+
+.br
+
+.br
+/* an array of arguments */
+.br
+struct ArgparseArguments {
+.br
+.RS  0.4i
+.br
+int length;                        /* the length of the array */
+.br
+int capacity;                      /* the maximum capacity of the array */
+.br
+struct ArgparseArgument *contents; /* the array of arguments */
+.br
+.RE
+.br
+};
+.br
+/* an array of options */
+.br
+struct ArgparseOptions {
+.br
+.RS  0.4i
+.br
+int length;                        /* the length of the array */
+.br
+int capacity;                      /* the maximum capacity of the array */
+.br
+struct ArgparseOptions *contents;  /* the array of options */
+.br
+.RE
+.br
+};
+.br
+/* an option that the program can accept */
+.br
+struct ArgparseOption {
+.br
+.RS  0.4i
+.br
+const char *name;                  /* one possible name for the option */
+.br
+const char *alternate_name;        /* another possible name for the option */
+.br
+int parameters;                    /* the number of parameters it will accept */
+.br
+int type;                          /* the type of option */
+.br
+.RE
+.br
+};
+.br
+/* a positional argument that the program expects. */
+.br
+struct ArgparseArgument {
+.br
+.RS  0.4i
+.br
+const char *name;                  /* the name of the positional argument */
+.br
+.RE
+.br
+};
+.br
+
+.br
+
+.br
+
+.br
+
+.br
+.SH DESCRIPTION
+This document intends to describe the internals of argparse, and provide
+documentation for internal structures and other things used by argparse
+internally. As such, if you are a user of argparse, it is recommended that
+you do not use any of these.
+
+The main setup of a program using argparse is separated into these main steps:
+    - Initialization of an argument parser
+    - Configuration of the argument parser
+    - Adding options, and arguments
+    - Displaying a help message
+    - Performing error checks
+    - Doing stuff with the arguments
+    - Releasing the argument parser
+
+Out of everything in this list, error handling is the one main part that is
+the most complicated. To perform error handling, argparse needs to know about
+the expected structure of your program. Specifically, it needs to know:
+    - How many positional arguments to expect
+    - What counts as an option, and how many parameters it takes
+    - Whether or not there can be a variable number of arguments
+.SH SEE ALSO
+This project has no references.

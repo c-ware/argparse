@@ -1,0 +1,81 @@
+.TH "argparse" "cware" "May 30, 2022" "" "C-Ware Manuals"
+.SH NAME
+argparse - argument parsing library for c
+.SH SYNOPSIS
+
+.B "#include ""argparse.h"""
+.br
+.br
+
+
+.br
+
+.br
+/* the container for argument parsing information */
+.br
+struct ArgparseParser {
+.br
+.RS  0.4i
+.br
+int argc;                            /* the argument count */
+.br
+char **argv;                         /* the argument vector */
+.br
+struct ArgparseOptions *options;     /* the option array */
+.br
+struct ArgparseArguments *arguments; /* the arguments array */
+.br
+int variable_arguments;              /* whether or not this program accepts variable arguments */
+.br
+const char *name;                    /* the name of the program */
+.br
+.RE
+.br
+};
+.br
+
+.br
+
+\fBstruct ArgparseParser argparse_init(const char *\fIname\fB, int \fIargc\fB, char **\fIargv\fB);
+.br\fR
+\fBvoid  argparse_add_argument(struct ArgparseParser *\fIparser\fB, const char *\fIname\fB);
+.br\fR
+\fBvoid  argparse_add_option(struct ArgparseParser *\fIparser\fB, const char *\fIname\fB, const char *\fIalt_name\fB, int \fIparameters\fB);
+.br\fR
+\fBvoid  argparse_add_repeatable_option(struct ArgparseParser *\fIparser\fB, const char *\fIname\fB, const char *\fIalt_name\fB);
+.br\fR
+\fBvoid  argparse_error(struct ArgparseParser \fIparser\fB);
+.br\fR
+\fBchar *argparse_get_argument(struct ArgparseParser \fIparser\fB, const char *\fIargument\fB);
+.br\fR
+\fBchar *argparse_get_option_parameter(struct ArgparseParser \fIparser\fB, const char *\fIoption\fB, int \fIindex\fB);
+.br\fR
+\fBvoid  argparse_free(struct ArgparseParser \fIparser\fB);
+.br\fR
+\fBvoid  argparse_option_exists(struct ArgparseParser \fIparser\fB, const char *\fIoption\fB);
+.br\fR
+.br
+
+.br
+
+.br
+\fB#define 
+argparse_option_parameter_iter(\fIparser\fB, \fIoption\fB, \fIindex\fB);
+.br\fR
+.br
+\fB#define 
+argparse_argument_variable_iter(\fIparser\fB, \fIindex\fB);
+.br\fR
+.br
+\fB#define 
+argparse_repeatable_option_iter(\fIparser\fB, \fIoption\fB, \fIindex\fB);
+.br\fR
+.br
+.SH DESCRIPTION
+This is a basic argument parsing library for C. It is intended to be used to
+create command line applications for UNIX operating systems, and thus supports
+UNIX style options. However, in the future, it will be possible to use other
+argument styles for other platforms.
+.SH SEE ALSO
+\fBcware\fR(cware)
+.br

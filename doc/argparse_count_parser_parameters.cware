@@ -1,0 +1,43 @@
+.TH "argparse_count_parser_parameters" "cware" "May 30, 2022" "" "C-Ware Manuals"
+.SH NAME
+argparse_count_parser_parameters - count the number of parameters that an option should have
+.SH SYNOPSIS
+.B "#include ""argparse_internal.h"""
+.br
+
+\fBint argparse_count_parser_parameters(struct ArgparseParser \fIparser\fB, const char *\fIoption\fB);
+.br
+
+\fR
+.SH DESCRIPTION
+Calculate the number of paramters that an option should have, as opposed to
+how many it actually has in the argv of the program.
+
+This function will display an error to the stderr, and abort the program if any of following conditions are met.
+.RS
+o    option is NULL
+.br
+o    parser.argv is NULL
+.br
+o    parser.argc is negative
+.br
+o    option does not exist in the argv
+.br
+.RE
+
+\fIparser\fR will be the parser the option is apart of
+.br
+\fIoption\fR will be the option to search for
+.br
+.SH RETURN VALUE
+This function will return the number of real parameters
+.SH NOTES
+This function is meant for internal use only. Although it can only be
+accessed through including the argparse_internal.h header, it is very
+much advised that you do not use this directly.
+
+.SH EXAMPLES
+This function has no examples.
+.SH SEE ALSO
+\fBcware\fR(cware), \fBargparse\fR(cware), \fBargparse_internal\fR(cware)
+.br

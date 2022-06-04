@@ -1,0 +1,47 @@
+.TH "argparse_option_parameter_start" "cware" "May 30, 2022" "" "C-Ware Manuals"
+.SH NAME
+argparse_option_parameter_start - start iteration of parameter options
+.SH SYNOPSIS
+.B "#include ""argparse.h"""
+.br
+
+\fBint argparse_option_parameter_start(struct ArgparseParser \fIparser\fB, const char *\fIoption\fB);
+.br
+
+\fR
+.SH DESCRIPTION
+Begin iteration over an option's parameters. This will work for both options
+with variable parameters, as well as a fixed number of parameters. All this
+function will do is return the index of the first parameter option. Do note,
+however, that this function will not consider alt_names when searching for
+the option to iterate over. You must have separate logic for both names.
+
+This function will display an error to the stderr, and abort the program if any of following conditions are met.
+.RS
+o    parser.argv is NULL
+.br
+o    option is NULL
+.br
+o    the option is not in the argv
+.br
+o    the option is not one that the program expects
+.br
+o    the option accepts no parameters
+.br
+.RE
+
+\fIparser\fR will be the parser the option is inside
+.br
+\fIoption\fR will be the option to iterate over
+.br
+.SH RETURN VALUE
+This function will return the index of the first parameter
+.SH NOTES
+This function, along with all functions in extractors.c, will ASSUME that
+error checking has BEEN DONE. Make sure this is done before this function
+is invoked.
+
+.SH EXAMPLES
+This function has no examples.
+.SH SEE ALSO
+This function has no references.

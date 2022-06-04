@@ -1,0 +1,51 @@
+.TH "argparse_init" "cware" "May 30, 2022" "" "C-Ware Manuals"
+.SH NAME
+argparse_init - initialize a new argument parser
+.SH SYNOPSIS
+.B "#include ""argparse.h"""
+.br
+
+\fBstruct ArgparseParser argparse_init(const char *\fIname\fB, int \fIargc\fB, char **\fIargv\fB);
+.br
+
+\fR
+.SH DESCRIPTION
+Initialize a new argument parser with the provided argc and argv.
+
+This function will display an error to the stderr, and abort the program if any of following conditions are met.
+.RS
+o    argc is negative
+.br
+o    argv is NULL
+.br
+o    name is NULL
+.br
+.RE
+
+\fIname\fR will be the name of the program
+.br
+\fIargc\fR will be the argument count
+.br
+\fIargv\fR will be the argument vector
+.br
+.SH RETURN VALUE
+This function will return a new argument parser
+.SH NOTES
+This function has no notes.
+.SH EXAMPLES
+#include "argparse.h"
+.br
+
+.br
+int main(int argc, char **argv) {
+.br
+    struct ArgparseParser parser = argparse_init(argc, argv);
+.br
+    
+.br
+    return 0;
+.br
+}
+.br
+.SH SEE ALSO
+This function has no references.
