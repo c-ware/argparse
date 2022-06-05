@@ -58,6 +58,8 @@
 #ifndef CWARE_ARGPARSE_H
 #define CWARE_ARGPARSE_H
 
+#define CWARE_ARGPARSE_VERSION  "1.0.0"
+
 /* Possibilities for variable option parameters */
 #define ARGPARSE_FLAG           0
 #define ARGPARSE_NOT_FOUND      -1
