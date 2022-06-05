@@ -1,4 +1,4 @@
-.TH "argparse_free" "cware" "Jun 04, 2022" "" "C-Ware Manuals"
+.TH "argparse_free" "cware" "Jun 05, 2022" "" "C-Ware Manuals"
 .SH NAME
 argparse_free - release an argument parser from memory
 .SH SYNOPSIS

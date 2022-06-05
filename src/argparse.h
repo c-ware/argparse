@@ -385,6 +385,9 @@ void argparse_error(struct ArgparseParser parser);
  *
  * @param option: the option to find
  * @type: const char *
+ *
+ * @return: 1 if the option exists within the argv, and 0 if it does not
+ * @type: int
 */
 int argparse_option_exists(struct ArgparseParser parser, const char *option);
 

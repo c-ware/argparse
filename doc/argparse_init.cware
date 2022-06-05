@@ -1,4 +1,4 @@
-.TH "argparse_init" "cware" "Jun 04, 2022" "" "C-Ware Manuals"
+.TH "argparse_init" "cware" "Jun 05, 2022" "" "C-Ware Manuals"
 .SH NAME
 argparse_init - initialize a new argument parser
 .SH SYNOPSIS

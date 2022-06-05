@@ -1,4 +1,4 @@
-.TH "argparse_is_option" "cware" "Jun 04, 2022" "" "C-Ware Manuals"
+.TH "argparse_is_option" "cware" "Jun 05, 2022" "" "C-Ware Manuals"
 .SH NAME
 argparse_is_option - determine if an argument is an option
 .SH SYNOPSIS

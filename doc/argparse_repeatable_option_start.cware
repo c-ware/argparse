@@ -1,4 +1,4 @@
-.TH "argparse_repeatable_option_start" "cware" "Jun 04, 2022" "" "C-Ware Manuals"
+.TH "argparse_repeatable_option_start" "cware" "Jun 05, 2022" "" "C-Ware Manuals"
 .SH NAME
 argparse_repeatable_option_start - begin iteration over repeatable options
 .SH SYNOPSIS
