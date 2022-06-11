@@ -40,6 +40,11 @@
  * @embed function: argparse_get_option_parameter
  * @embed function: argparse_free
  * @embed function: argparse_option_exists
+ * @embed function: argparse_count_arguments
+ * @embed function: argparse_unrecognized_options
+ * @embed function: argparse_parameter_count
+ * @embed function: argparse_repeatable_parameter_count
+ * @embed function: argparse_argument_count
  *
  * @embed macro_function: argparse_option_parameter_iter
  * @embed macro_function: argparse_argument_variable_iter
@@ -58,7 +63,7 @@
 #ifndef CWARE_ARGPARSE_H
 #define CWARE_ARGPARSE_H
 
-#define CWARE_ARGPARSE_VERSION  "1.0.0"
+#define CWARE_ARGPARSE_VERSION  "1.0.1"
 
 /* Possibilities for variable option parameters */
 #define ARGPARSE_FLAG           0
@@ -333,6 +338,8 @@ void argparse_add_repeatable_option(struct ArgparseParser *parser, const char *n
  * @    - Too many, or too few positional arguments
  * @    - Too many, or too few parameters to an option
  * @    - An unknown option is found
+ * @
+ * @This function is a wrapper around the existing error checking functions.
  * @description
  *
  * @example
@@ -725,14 +732,108 @@ int argparse_repeatable_option_next(struct ArgparseParser parser, const char *op
 */
 void argparse_free(struct ArgparseParser parser);
 
+/*
+ * @docgen: function
+ * @brief: detect unrecognized options
+ * @name: argparse_unrecognized_options
+ *
+ * @description
+ * @Perform error checks for detecting unrecognized options in the program's
+ * @argv.
+ * @description
+ *
+ * @error: parser.argv is NULL
+ * @error: parser.name is NULL
+ * @error: parser.argc is negative
+ *
+ * @param parser: the argument parser
+ * @type: struct ArgparseParser
+*/
+void argparse_unrecognized_options(struct ArgparseParser parser);
 
+/*
+ * @docgen: function
+ * @brief: detect option parameter counts
+ * @name: argparse_parameter_count
+ *
+ * @description
+ * @Perform error checks for detecting the number of parameters that an
+ * @option has.
+ * @description
+ *
+ * @error: parser.argv is NULL
+ * @error: parser.name is NULL
+ * @error: parser.options is NULL
+ * @error: parser.options->contents is NULL
+ * @error: parser.argc is negative
+ *
+ * @param parser: the argument parser
+ * @type: struct ArgparseParser
+*/
+void argparse_parameter_count(struct ArgparseParser parser);
 
+/*
+ * @docgen: function
+ * @brief: detect repeatable option parameters
+ * @name: argparse_repeatable_parameter_count
+ *
+ * @description
+ * @Perform error checks when detecting the number of parameters that a
+ * @repeatable option has.
+ * @description
+ *
+ * @error: parser.argv is NULL
+ * @error: parser.name is NULL
+ * @error: parser.options is NULL
+ * @error: parser.options->contents is NULL
+ * @error: parser.argc is negative
+ *
+ * @param parser: the argument parser
+ * @type: struct ArgparseParser
+*/
+void argparse_repeatable_parameter_count(struct ArgparseParser parser);
 
+/*
+ * @docgen: function
+ * @brief: detect too few or too mnay arguments
+ * @name: argparse_argument_count
+ *
+ * @description
+ * @Perform error checks for verifying the number of arguments in the
+ * @program's argv match the expected number of positional arguments.
+ * @description
+ *
+ * @error: parser.argv is NULL
+ * @error: parser.name is NULL
+ * @error: parser.arguments is NULL
+ * @error: parser.argc is negative
+ * @error: parser.variable_arguments is negative
+ * @error: parser.arguments->length is negative
+ *
+ * @param parser: the argument parser
+ * @type: struct ArgparseParser
+*/
+void argparse_argument_count(struct ArgparseParser parser);
 
-
-
-
-
-
+/*
+ * @docgen: function
+ * @brief: count the number of arguments in the argv
+ * @name: argparse_count_arguments
+ *
+ * @description
+ * @Count the number of arguments, both required and variable, in the argv
+ * @of the program.
+ * @description
+ *
+ * @error: parser.argc is negative
+ * @error: parser.argv is NULL
+ *
+ * @param parser: the argument parser
+ * @type: struct ArgparseParser
+ *
+ * @return: the number of arguments
+ * @type: int
+*/
+int argparse_count_arguments(struct ArgparseParser parser);
 
 #endif

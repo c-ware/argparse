@@ -1,4 +1,4 @@
-.TH "argparse_count_parser_parameters" "cware" "Jun 05, 2022" "" "C-Ware Manuals"
+.TH "argparse_count_parser_parameters" "cware" "Jun 11, 2022" "" "C-Ware Manuals"
 .SH NAME
 argparse_count_parser_parameters - count the number of parameters that an option should have
 .SH SYNOPSIS

@@ -1,10 +1,18 @@
 # CHANGELOG.md
 
-VERSION: 1.0.0
-DATE: June 5th, 2022
+VERSION: 1.0.1
+DATE: June 11th, 2022
+
+## Features
+- Added argparse_count_arguments
+- Error checking functions are no longer static, and can be used by the
+  programmer.
+
+## Miscellaneous
+- Added more parameter error checks to error checking functions.
 
 ## Bug Fixes
-- argparse_option_exists now correctly returns
+No bug fixes.
 
 ## Documentation
-- argparse_option_exists has documented return type
+- Added documentation for all new functions

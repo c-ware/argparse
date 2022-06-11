@@ -1,4 +1,4 @@
-.TH "argparse_error" "cware" "Jun 05, 2022" "" "C-Ware Manuals"
+.TH "argparse_error" "cware" "Jun 11, 2022" "" "C-Ware Manuals"
 .SH NAME
 argparse_error - perform error checks on the argument parser
 .SH SYNOPSIS
@@ -15,6 +15,8 @@ stderr and exit the program if there is one. An error can be caused by:
     - Too many, or too few positional arguments
     - Too many, or too few parameters to an option
     - An unknown option is found
+
+This function is a wrapper around the existing error checking functions.
 
 This function has no error conditions.
 .br

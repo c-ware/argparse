@@ -1,0 +1,41 @@
+.TH "argparse_argument_count" "cware" "Jun 11, 2022" "" "C-Ware Manuals"
+.SH NAME
+argparse_argument_count - detect too few or too mnay arguments
+.SH SYNOPSIS
+.B "#include ""argparse.h"""
+.br
+
+\fBvoid argparse_argument_count(struct ArgparseParser \fIparser\fB);
+.br
+
+\fR
+.SH DESCRIPTION
+Perform error checks for verifying the number of arguments in the
+program's argv match the expected number of positional arguments.
+
+This function will display an error to the stderr, and abort the program if any of following conditions are met.
+.RS
+o    parser.argv is NULL
+.br
+o    parser.name is NULL
+.br
+o    parser.arguments is NULL
+.br
+o    parser.argc is negative
+.br
+o    parser.variable_arguments is negative
+.br
+o    parser.arguments->length is negative
+.br
+.RE
+
+\fIparser\fR will be the argument parser
+.br
+.SH RETURN VALUE
+This function has no return value.
+.SH NOTES
+This function has no notes.
+.SH EXAMPLES
+This function has no examples.
+.SH SEE ALSO
+This function has no references.

@@ -178,17 +178,57 @@ void argparse_add_repeatable_option(struct ArgparseParser *parser, const char *n
     carray_append(parser->options, option, OPTION);
 }
 
+int argparse_count_arguments(struct ArgparseParser parser) {
+    int index = 0;
+    int counted = 0;
+
+    liberror_is_null(argparse_count_arguments, parser.argv);
+    liberror_is_negative(argparse_count_arguments, parser.argc);
+
+    for(index = 1; index < parser.argc; index++) {
+        const char *argument = parser.argv[index];
+        
+        /* Skip past this option! (We can assume that the
+         * number of indices skipped is correct because of the
+         * parameter_count function being called beforehand. */
+        if(argparse_is_option(parser, argument) == 1) {
+            int parameters = argparse_option_parser_parameters(parser, argument);
+
+            /* Skip past a variable number */
+            if(parameters == ARGPARSE_VARIABLE || parameters == ARGPARSE_VARIABLE_ONE) {
+                index += argparse_option_argv_parameters(parser, argument);
+
+                continue;
+            }
+
+            index += parameters;
+
+            continue;
+        }
+
+        counted++;
+    }
+
+    return counted;
+}
+
+void argparse_free(struct ArgparseParser parser) {
+    liberror_is_null(argparse_free, parser.options);
+    liberror_is_null(argparse_free, parser.arguments);
+    liberror_is_negative(argparse_free, parser.options->length);
+    liberror_is_negative(argparse_free, parser.arguments->length);
+
+    carray_free(parser.options, OPTION);
+    carray_free(parser.arguments, ARGUMENT);
+}
 
 
 
 /*
- * Error checking logic-- everything past this point except for
- * `argparse_error` is meant for internal use (as such, they are all
- * declared as static). Do not attempt to use them, as you will more
- * than likely break things.
+ * Error checking logic
 */
 
-static void unrecognized_options(struct ArgparseParser parser) {
+void argparse_unrecognized_options(struct ArgparseParser parser) {
     int index = 0;
 
     liberror_is_null(unrecognized_options, parser.argv);
@@ -212,8 +252,14 @@ static void unrecognized_options(struct ArgparseParser parser) {
     }
 }
 
-static void parameter_count(struct ArgparseParser parser) {
+void argparse_parameter_count(struct ArgparseParser parser) {
     int index = 0;
+
+    liberror_is_null(argparse_parameter_count, parser.argv);
+    liberror_is_null(argparse_parameter_count, parser.name);
+    liberror_is_null(argparse_parameter_count, parser.options);
+    liberror_is_null(argparse_parameter_count, parser.options->contents);
+    liberror_is_negative(argparse_parameter_count, parser.argc);
 
     for(index = 1; index < parser.argc; index++) {
         int parser_index = 0;
@@ -267,11 +313,16 @@ static void parameter_count(struct ArgparseParser parser) {
         fprintf(stderr, "Try '%s --help' for more information\n", parser.name);
         exit(EXIT_FAILURE);
     }
-
 }
 
-static void repeatable_parameter_count(struct ArgparseParser parser) {
+void argparse_repeatable_parameter_count(struct ArgparseParser parser) {
     int index = 0;
+
+    liberror_is_null(argparse_parameter_count, parser.argv);
+    liberror_is_null(argparse_parameter_count, parser.name);
+    liberror_is_null(argparse_parameter_count, parser.options);
+    liberror_is_null(argparse_parameter_count, parser.options->contents);
+    liberror_is_negative(argparse_parameter_count, parser.argc);
 
     for(index = 1; index < parser.argc; index++) {
         int is_invalid = 0;
@@ -301,7 +352,7 @@ static void repeatable_parameter_count(struct ArgparseParser parser) {
     }
 }
 
-static void argument_count(struct ArgparseParser parser) {
+void argparse_argument_count(struct ArgparseParser parser) {
     int index = 0;
     int arguments = 0;
 
@@ -365,18 +416,8 @@ static void argument_count(struct ArgparseParser parser) {
 }
 
 void argparse_error(struct ArgparseParser parser) {
-    unrecognized_options(parser);
-    parameter_count(parser);
-    repeatable_parameter_count(parser);
-    argument_count(parser);
-}
-
-void argparse_free(struct ArgparseParser parser) {
-    liberror_is_null(argparse_free, parser.options);
-    liberror_is_null(argparse_free, parser.arguments);
-    liberror_is_negative(argparse_free, parser.options->length);
-    liberror_is_negative(argparse_free, parser.arguments->length);
-
-    carray_free(parser.options, OPTION);
-    carray_free(parser.arguments, ARGUMENT);
+    argparse_unrecognized_options(parser);
+    argparse_parameter_count(parser);
+    argparse_repeatable_parameter_count(parser);
+    argparse_argument_count(parser);
 }

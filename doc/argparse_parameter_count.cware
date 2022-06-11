@@ -1,0 +1,39 @@
+.TH "argparse_parameter_count" "cware" "Jun 11, 2022" "" "C-Ware Manuals"
+.SH NAME
+argparse_parameter_count - detect option parameter counts
+.SH SYNOPSIS
+.B "#include ""argparse.h"""
+.br
+
+\fBvoid argparse_parameter_count(struct ArgparseParser \fIparser\fB);
+.br
+
+\fR
+.SH DESCRIPTION
+Perform error checks for detecting the number of parameters that an
+option has.
+
+This function will display an error to the stderr, and abort the program if any of following conditions are met.
+.RS
+o    parser.argv is NULL
+.br
+o    parser.name is NULL
+.br
+o    parser.options is NULL
+.br
+o    parser.options->contents is NULL
+.br
+o    parser.argc is negative
+.br
+.RE
+
+\fIparser\fR will be the argument parser
+.br
+.SH RETURN VALUE
+This function has no return value.
+.SH NOTES
+This function has no notes.
+.SH EXAMPLES
+This function has no examples.
+.SH SEE ALSO
+This function has no references.

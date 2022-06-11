@@ -1,4 +1,4 @@
-.TH "argparse_get_option_parameter" "cware" "Jun 05, 2022" "" "C-Ware Manuals"
+.TH "argparse_get_option_parameter" "cware" "Jun 11, 2022" "" "C-Ware Manuals"
 .SH NAME
 argparse_get_option_parameter - get the Nth parameter of an option
 .SH SYNOPSIS

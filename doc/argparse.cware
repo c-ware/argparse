@@ -1,4 +1,4 @@
-.TH "argparse" "cware" "Jun 05, 2022" "" "C-Ware Manuals"
+.TH "argparse" "cware" "Jun 11, 2022" "" "C-Ware Manuals"
 .SH NAME
 argparse - argument parsing library for c
 .SH SYNOPSIS
@@ -53,6 +53,16 @@ const char *name;                    /* the name of the program */
 \fBvoid  argparse_free(struct ArgparseParser \fIparser\fB);
 .br\fR
 \fBint argparse_option_exists(struct ArgparseParser \fIparser\fB, const char *\fIoption\fB);
+.br\fR
+\fBint argparse_count_arguments(struct ArgparseParser \fIparser\fB);
+.br\fR
+\fBvoid  argparse_unrecognized_options(struct ArgparseParser \fIparser\fB);
+.br\fR
+\fBvoid  argparse_parameter_count(struct ArgparseParser \fIparser\fB);
+.br\fR
+\fBvoid  argparse_repeatable_parameter_count(struct ArgparseParser \fIparser\fB);
+.br\fR
+\fBvoid  argparse_argument_count(struct ArgparseParser \fIparser\fB);
 .br\fR
 .br
 

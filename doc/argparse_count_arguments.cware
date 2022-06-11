@@ -1,0 +1,33 @@
+.TH "argparse_count_arguments" "cware" "Jun 11, 2022" "" "C-Ware Manuals"
+.SH NAME
+argparse_count_arguments - count the number of arguments in the argv
+.SH SYNOPSIS
+.B "#include ""argparse.h"""
+.br
+
+\fBint argparse_count_arguments(struct ArgparseParser \fIparser\fB);
+.br
+
+\fR
+.SH DESCRIPTION
+Count the number of arguments, both required and variable, in the argv
+of the program.
+
+This function will display an error to the stderr, and abort the program if any of following conditions are met.
+.RS
+o    parser.argc is negative
+.br
+o    parser.argv is NULL
+.br
+.RE
+
+\fIparser\fR will be the argument parser
+.br
+.SH RETURN VALUE
+This function will return the number of arguments
+.SH NOTES
+This function has no notes.
+.SH EXAMPLES
+This function has no examples.
+.SH SEE ALSO
+This function has no references.
