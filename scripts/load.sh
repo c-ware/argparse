@@ -22,4 +22,4 @@ docgen functions ./src/ap_inter.h --section 'cware'            \
                                   --date "`date +'%b %d, %Y'`"
 
 # Process the Makefile
-m4 ./templates/Makefile.template > ./Makefile
+m4 ./template/Makefile > ./Makefile
