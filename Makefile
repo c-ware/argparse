@@ -5,7 +5,7 @@
 CC=cc
 PREFIX=/usr/local
 CFLAGS=
-OBJS=src/extractors.o src/argparse_internal.o src/argparse.o 
+OBJS=src/ap_inter.o src/extract.o src/argparse.o 
 TESTS=
 EXAMPLES=examples/isum.out examples/init.out 
 DOCS=./doc/argparse_option_parameter_start.cware ./doc/argparse_option_argv_index.cware ./doc/argparse_repeatable_option_start.cware ./doc/argparse_option_parameter_stop.cware ./doc/argparse_error.cware ./doc/argparse_parameter_count.cware ./doc/argparse_get_argument.cware ./doc/argparse_free.cware ./doc/argparse_argument_variable_start.cware ./doc/argparse_init.cware ./doc/argparse_unrecognized_options.cware ./doc/argparse_is_option.cware ./doc/argparse_option_exists.cware ./doc/argparse_get_option_parameter.cware ./doc/argparse.cware ./doc/argparse_count_argv_parameters.cware ./doc/argparse_count_arguments.cware ./doc/argparse_count_parser_parameters.cware ./doc/argparse_repeatable_parameter_count.cware ./doc/argparse-internal.cware ./doc/argparse_add_argument.cware ./doc/argparse_argument_count.cware ./doc/argparse_add_option.cware ./doc/argparse_option_parser_index.cware ./doc/argparse_argument_variable_next.cware ./doc/argparse_add_repeatable_option.cware 

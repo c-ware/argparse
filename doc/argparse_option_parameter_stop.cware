@@ -1,4 +1,4 @@
-.TH "argparse_option_parameter_stop" "cware" "Jun 11, 2022" "" "C-Ware Manuals"
+.TH "argparse_option_parameter_stop" "cware" "Jun 18, 2022" "" "C-Ware Manuals"
 .SH NAME
 argparse_option_parameter_stop - determine if iteration of option parameters should be stopped
 .SH SYNOPSIS

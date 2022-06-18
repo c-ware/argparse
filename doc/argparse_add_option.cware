@@ -1,4 +1,4 @@
-.TH "argparse_add_option" "cware" "Jun 11, 2022" "" "C-Ware Manuals"
+.TH "argparse_add_option" "cware" "Jun 18, 2022" "" "C-Ware Manuals"
 .SH NAME
 argparse_add_option - add a new option to the argument parser
 .SH SYNOPSIS

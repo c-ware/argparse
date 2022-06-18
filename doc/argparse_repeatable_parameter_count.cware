@@ -1,4 +1,4 @@
-.TH "argparse_repeatable_parameter_count" "cware" "Jun 11, 2022" "" "C-Ware Manuals"
+.TH "argparse_repeatable_parameter_count" "cware" "Jun 18, 2022" "" "C-Ware Manuals"
 .SH NAME
 argparse_repeatable_parameter_count - detect repeatable option parameters
 .SH SYNOPSIS

@@ -1,4 +1,4 @@
-.TH "argparse_argument_count" "cware" "Jun 11, 2022" "" "C-Ware Manuals"
+.TH "argparse_argument_count" "cware" "Jun 18, 2022" "" "C-Ware Manuals"
 .SH NAME
 argparse_argument_count - detect too few or too mnay arguments
 .SH SYNOPSIS

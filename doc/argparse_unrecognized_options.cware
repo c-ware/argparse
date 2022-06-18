@@ -1,4 +1,4 @@
-.TH "argparse_unrecognized_options" "cware" "Jun 11, 2022" "" "C-Ware Manuals"
+.TH "argparse_unrecognized_options" "cware" "Jun 18, 2022" "" "C-Ware Manuals"
 .SH NAME
 argparse_unrecognized_options - detect unrecognized options
 .SH SYNOPSIS

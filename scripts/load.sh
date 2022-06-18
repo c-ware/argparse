@@ -12,14 +12,14 @@ docgen functions ./src/argparse.h --section 'cware'            \
                                   --date "`date +'%b %d, %Y'`" \
                                   --include 'argparse.h'
 
-docgen category ./src/argparse_internal.h --section 'cware'            \
-                                          --title 'C-Ware Manuals'     \
-                                          --date "`date +'%b %d, %Y'`" \
-                                          --include 'argparse.h'
+docgen category ./src/ap_inter.h --section 'cware'            \
+                                 --title 'C-Ware Manuals'     \
+                                 --date "`date +'%b %d, %Y'`" \
+                                 --include 'argparse.h'
 
-docgen functions ./src/argparse_internal.h --section 'cware'            \
-                                           --title 'C-Ware Manuals'     \
-                                           --date "`date +'%b %d, %Y'`"
+docgen functions ./src/ap_inter.h --section 'cware'            \
+                                  --title 'C-Ware Manuals'     \
+                                  --date "`date +'%b %d, %Y'`"
 
 # Process the Makefile
 m4 ./templates/Makefile.template > ./Makefile

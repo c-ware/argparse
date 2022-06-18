@@ -1,4 +1,4 @@
-.TH "argparse_error" "cware" "Jun 11, 2022" "" "C-Ware Manuals"
+.TH "argparse_error" "cware" "Jun 18, 2022" "" "C-Ware Manuals"
 .SH NAME
 argparse_error - perform error checks on the argument parser
 .SH SYNOPSIS
