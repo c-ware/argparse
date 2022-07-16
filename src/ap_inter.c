@@ -50,7 +50,6 @@
 
 int argparse_is_option(struct ArgparseParser parser, const char *argument) {
     int hyphon_index = -1;
-    int length = strlen(argument);
 
     if(strlen(argument) < 2)
         return 0;
