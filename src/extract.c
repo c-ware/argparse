@@ -197,7 +197,6 @@ int argparse_argument_variable_start(struct ArgparseParser parser) {
     /* Find the first variable argument in the parser */
     for(argv_index = 1; argv_index < parser.argc; argv_index++) {
         const char *argument = parser.argv[argv_index];
-        struct ArgparseArgument parser_argument = parser.arguments->contents[argument_index];
 
         /* Skip past this option! (We can assume that the number of
          * indices skipped is correct because error checking should have

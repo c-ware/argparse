@@ -273,7 +273,6 @@ void argparse_parameter_count(struct ArgparseParser parser) {
     liberror_is_negative(argparse_parameter_count, parser.argc);
 
     for(index = 1; index < parser.argc; index++) {
-        int parser_index = 0;
         int argv_parameters = 0;
         int parser_parameters = 0;
         const char *argument = parser.argv[index];
@@ -336,7 +335,6 @@ void argparse_repeatable_parameter_count(struct ArgparseParser parser) {
     liberror_is_negative(argparse_parameter_count, parser.argc);
 
     for(index = 1; index < parser.argc; index++) {
-        int is_invalid = 0;
         int parser_index = 0;
         const char *argument = parser.argv[index];
 
